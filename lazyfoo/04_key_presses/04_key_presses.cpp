@@ -35,7 +35,7 @@ SDL_Surface* loadSurface( std::string path );
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
-	
+
 //The surface contained by the window
 SDL_Surface* gScreenSurface = NULL;
 
@@ -81,7 +81,7 @@ bool loadMedia()
 	bool success = true;
 
 	//Load default surface
-	gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "04_key_presses/press.bmp" );
+	gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "../04_key_presses/press.bmp" );
 	if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DEFAULT ] == NULL )
 	{
 		printf( "Failed to load default image!\n" );
@@ -89,7 +89,7 @@ bool loadMedia()
 	}
 
 	//Load up surface
-	gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( "04_key_presses/up.bmp" );
+	gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] = loadSurface( "../04_key_presses/up.bmp" );
 	if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_UP ] == NULL )
 	{
 		printf( "Failed to load up image!\n" );
@@ -97,7 +97,7 @@ bool loadMedia()
 	}
 
 	//Load down surface
-	gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface( "04_key_presses/down.bmp" );
+	gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] = loadSurface( "../04_key_presses/down.bmp" );
 	if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_DOWN ] == NULL )
 	{
 		printf( "Failed to load down image!\n" );
@@ -105,7 +105,7 @@ bool loadMedia()
 	}
 
 	//Load left surface
-	gKeyPressSurfaces[ KEY_PRESS_SURFACE_LEFT ] = loadSurface( "04_key_presses/left.bmp" );
+	gKeyPressSurfaces[ KEY_PRESS_SURFACE_LEFT ] = loadSurface( "../04_key_presses/left.bmp" );
 	if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_LEFT ] == NULL )
 	{
 		printf( "Failed to load left image!\n" );
@@ -113,7 +113,7 @@ bool loadMedia()
 	}
 
 	//Load right surface
-	gKeyPressSurfaces[ KEY_PRESS_SURFACE_RIGHT ] = loadSurface( "04_key_presses/right.bmp" );
+	gKeyPressSurfaces[ KEY_PRESS_SURFACE_RIGHT ] = loadSurface( "../04_key_presses/right.bmp" );
 	if( gKeyPressSurfaces[ KEY_PRESS_SURFACE_RIGHT ] == NULL )
 	{
 		printf( "Failed to load right image!\n" );
@@ -168,7 +168,7 @@ int main( int argc, char* args[] )
 			printf( "Failed to load media!\n" );
 		}
 		else
-		{	
+		{
 			//Main loop flag
 			bool quit = false;
 
@@ -220,7 +220,7 @@ int main( int argc, char* args[] )
 
 				//Apply the current image
 				SDL_BlitSurface( gCurrentSurface, NULL, gScreenSurface, NULL );
-			
+
 				//Update the surface
 				SDL_UpdateWindowSurface( gWindow );
 			}

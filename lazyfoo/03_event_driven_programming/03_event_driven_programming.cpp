@@ -20,7 +20,7 @@ void close();
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
-	
+
 //The surface contained by the window
 SDL_Surface* gScreenSurface = NULL;
 
@@ -63,7 +63,7 @@ bool loadMedia()
 	bool success = true;
 
 	//Load splash image
-	gXOut = SDL_LoadBMP( "03_event_driven_programming/x.bmp" );
+	gXOut = SDL_LoadBMP( "../03_event_driven_programming/x.bmp" );
 	if( gXOut == NULL )
 	{
 		printf( "Unable to load image %s! SDL Error: %s\n", "03_event_driven_programming/x.bmp", SDL_GetError() );
@@ -102,7 +102,7 @@ int main( int argc, char* args[] )
 			printf( "Failed to load media!\n" );
 		}
 		else
-		{			
+		{
 			//Main loop flag
 			bool quit = false;
 
@@ -124,7 +124,7 @@ int main( int argc, char* args[] )
 
 				//Apply the image
 				SDL_BlitSurface( gXOut, NULL, gScreenSurface, NULL );
-			
+
 				//Update the surface
 				SDL_UpdateWindowSurface( gWindow );
 			}
