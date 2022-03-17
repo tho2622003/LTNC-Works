@@ -31,11 +31,18 @@ int  main(int argc, char** argv) {
         //end of insert dumb stuffs here
         SDL_RenderPresent(renderer);
 
+        //quit event while loop
         while(SDL_PollEvent(&quit)){
             switch(quit.type){
+            //click x to quit window (SDL_QUIT != SDL_Quit())
             case SDL_QUIT:
                 running = false;
                 break;
+            //press escape to quit window using SDL_KeyDown
+            case SDL_KEYDOWN:
+                if (quit.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
+                    running = false;
+                }
             default:
                 break;
             }
