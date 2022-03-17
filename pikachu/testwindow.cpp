@@ -56,6 +56,11 @@ int  main(int argc, char** argv) {
         }
     }
 
+    //quit everything (required)
+    /*SDL_DestroyTexture(texture);
+    SDL_FreeSurface(image);*/
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
     SDL_Quit();
 
     return 0;
