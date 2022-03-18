@@ -9,8 +9,10 @@ int main (int argc, char** argv) {
     SDL_Surface* surface = SDL_GetWindowSurface(window);
     SDL_Surface* bitmap = NULL;
     while(running) {
-        SDL_SetRenderDrawColor(renderer, 20, 205, 244, 255);
-        SDL_RenderClear(renderer);
+
+        bitmap = SDL_LoadBMP("../pikachu/smug.bmp");
+        SDL_BlitSurface(bitmap, NULL, surface, NULL);
+        SDL_UpdateWindowSurface(window);
 
         SDL_Event event;
         while(SDL_PollEvent(&event)){
@@ -28,12 +30,6 @@ int main (int argc, char** argv) {
                 break;
             }
         }
-
-        bitmap = SDL_LoadBMP("../smug.bmp");
-        SDL_BlitSurface(bitmap, NULL, surface, NULL);
-        SDL_UpdateWindowSurface(window);
-        SDL_RenderPresent(renderer);
-
     }
     SDL_FreeSurface(bitmap);
     SDL_DestroyRenderer(renderer);
