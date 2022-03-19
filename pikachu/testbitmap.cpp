@@ -25,6 +25,8 @@ int main (int argc, char** argv) {
             case SDL_QUIT:
                 running = false;
                 break;
+            case SDL_MOUSEBUTTONDOWN:
+                std::cout << "stahp clickin'" << '\n';
             case SDL_MOUSEMOTION:
                 std::cout << event.motion.x << " " << event.motion.y << '\n';
             case SDL_KEYDOWN:
