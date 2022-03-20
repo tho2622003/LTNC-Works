@@ -31,17 +31,21 @@ int main(int argc, char** argv) {
     SDL_Surface* keypress [KEY_PRESS_SURFACE_TOTAL];
     //anh hien tai dang duoc load, de BlitSurface len surface
     //SDL_BlitSurface(current --> surface)
-    SDL_Surface* current = NULL;
+    SDL_Surface* current = SDL_LoadBMP("../pikachu/keypress_bmp/default.bmp");
+    //set windows icon
+    SDL_Surface* icon = SDL_LoadBMP("../pikachu/keypress_bmp/icon.bmp");
+    SDL_SetWindowIcon(window, icon);
     SDL_Event event;
 
-    while (running) {
+    //load each image into the keypress array
+    keypress[KEY_PRESS_SURFACE_DEFAULT] = SDL_LoadBMP("../pikachu/keypress_bmp/default.bmp");
+    keypress[KEY_PRESS_SURFACE_UP] = SDL_LoadBMP("../pikachu/keypress_bmp/up.bmp");
+    keypress[KEY_PRESS_SURFACE_DOWN] = SDL_LoadBMP("../pikachu/keypress_bmp/down.bmp");
+    keypress[KEY_PRESS_SURFACE_LEFT] = SDL_LoadBMP("../pikachu/keypress_bmp/left.bmp");
+    keypress[KEY_PRESS_SURFACE_RIGHT] = SDL_LoadBMP("../pikachu/keypress_bmp/right.bmp");
 
-        //load each image into the keypress array
-        keypress[KEY_PRESS_SURFACE_DEFAULT] = SDL_LoadBMP("../pikachu/keypress_bmp/default.bmp");
-        keypress[KEY_PRESS_SURFACE_UP] = SDL_LoadBMP("../pikachu/keypress_bmp/up.bmp");
-        keypress[KEY_PRESS_SURFACE_DOWN] = SDL_LoadBMP("../pikachu/keypress_bmp/down.bmp");
-        keypress[KEY_PRESS_SURFACE_LEFT] = SDL_LoadBMP("../pikachu/keypress_bmp/left.bmp");
-        keypress[KEY_PRESS_SURFACE_RIGHT] = SDL_LoadBMP("../pikachu/keypress_bmp/right.bmp");
+
+    while (running) {
 
         while (SDL_PollEvent(&event)){
             switch (event.type) {
@@ -49,7 +53,7 @@ int main(int argc, char** argv) {
             case SDL_QUIT:
                 running = false;
                 break;
-            //user press ESC
+            //where all the user inputs are handled
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym) {
                 case SDLK_UP:
@@ -64,11 +68,16 @@ int main(int argc, char** argv) {
                 case SDLK_RIGHT:
                     current = keypress[KEY_PRESS_SURFACE_RIGHT];
                     break;
+                case SDLK_SPACE:
+                    current = keypress[KEY_PRESS_SURFACE_DEFAULT];
+                    break;
+                default:
+                    current = keypress[KEY_PRESS_SURFACE_DEFAULT];
                 }
             }
+        }
         SDL_BlitSurface(current, NULL, surface, NULL);
         SDL_UpdateWindowSurface(window);
-        }
     }
 
     //deallocating surfaces
