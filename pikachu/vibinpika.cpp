@@ -1,4 +1,5 @@
 #include <sdl.h>
+#include <sdl_mixer.h>
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -21,7 +22,7 @@ enum KeyPressSurfaces {
 int main(int argc, char** argv) {
 
     //standard stuffs
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     SDL_Window* window = SDL_CreateWindow("vibin' with smug pika", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 300, 300, 0);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     //ham loadSurface trong SDL_Surface: load tung anh mot
@@ -36,6 +37,12 @@ int main(int argc, char** argv) {
     SDL_Surface* icon = SDL_LoadBMP("../pikachu/keypress_bmp/icon.bmp");
     SDL_SetWindowIcon(window, icon);
     SDL_Event event;
+    Mix_Music *music = NULL;
+
+    //channel ur inner musique (outside while(running) loop beca/use I'm one dumb mothafukka)
+    Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2048);
+    music = Mix_LoadMUS("../pikachu/keypress_BMP/vina.mp3");
+    Mix_PlayMusic(music, -1);
 
     //load each image into the keypress array
     keypress[KEY_PRESS_SURFACE_DEFAULT] = SDL_LoadBMP("../pikachu/keypress_bmp/default.bmp");
@@ -76,6 +83,7 @@ int main(int argc, char** argv) {
                 }
             }
         }
+
         SDL_BlitSurface(current, NULL, surface, NULL);
         SDL_UpdateWindowSurface(window);
     }
@@ -87,6 +95,8 @@ int main(int argc, char** argv) {
     }
 
     //destroy everythangggg
+    Mix_FreeMusic(music);
+    Mix_CloseAudio();
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
