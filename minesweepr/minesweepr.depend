@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1589296641 source:e:\cpp\ltnc-works\minesweepr\button.cpp
+	<ctime>
+	"Button.h"
+
+1589296641 e:\cpp\ltnc-works\minesweepr\button.h
+	"Variables.h"
+	"Constances.h"
+
+1589296641 e:\cpp\ltnc-works\minesweepr\variables.h
+	<SDL_mixer.h>
+	<sstream>
+	"Texture.h"
+	"Constances.h"
+	"Button.h"
+
+1589296641 e:\cpp\ltnc-works\minesweepr\texture.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<cstring>
+
+1650897855 e:\cpp\ltnc-works\minesweepr\constances.h
+
+1650884938 source:e:\cpp\ltnc-works\minesweepr\main.cpp
+	<iostream>
+	<ctime>
+	<stdlib.h>
+	<sstream>
+	<string>
+	"Texture.h"
+	"Constances.h"
+	"Variables.h"
+
+1589296641 source:e:\cpp\ltnc-works\minesweepr\texture.cpp
+	"Texture.h"
+	"Variables.h"
+
+1589296641 source:e:\cpp\ltnc-works\minesweepr\variables.cpp
+	"Variables.h"
+
