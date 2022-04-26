@@ -151,6 +151,8 @@ bool init()
 		else
 		{
 			//Create vsynced renderer for window
+			SDL_Surface* gIcon = IMG_Load("./Image/Icon.png");
+			SDL_SetWindowIcon(gWindow, gIcon);
 			gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
 			if( gRenderer == NULL )
 			{

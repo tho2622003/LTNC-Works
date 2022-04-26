@@ -11,14 +11,14 @@ int main (int argc, char** argv){
     SDL_Window* window = SDL_CreateWindow("testing mixer and image", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 600, 0);
     SDL_Surface* surface = SDL_GetWindowSurface(window);
 
-    SDL_Surface* cover = IMG_Load("../pikachu/keypress_bmp/cover.jpg");
+    SDL_Surface* cover = IMG_Load("./keypress_bmp/cover.jpg");
     SDL_Surface* optimized = SDL_ConvertSurface(cover, surface->format, 0);
     SDL_FreeSurface(cover);
 
     SDL_Rect stretch{0, 0, 600, 600};
 
     Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2048);
-    Mix_Music* music = Mix_LoadMUS("../pikachu/keypress_bmp/supernova.mp3");
+    Mix_Music* music = Mix_LoadMUS("./keypress_bmp/supernova.mp3");
     Mix_PlayMusic(music, -1);
 
     SDL_Event quit;
