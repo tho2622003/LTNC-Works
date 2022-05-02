@@ -239,7 +239,7 @@ bool loadMedia()
     {
         //Render text
 		SDL_Color playAgainLose = { 255, 255, 255 };
-		if( !gPlayAgainLoseTexture.loadFromRenderedText( "s is on the keyboard", playAgainLose ) )
+		if( !gPlayAgainLoseTexture.loadFromRenderedText( "s to try again", playAgainLose ) )
 		{
 			cout << "Failed to render text texture!\n";
 			success = false;

@@ -5,11 +5,11 @@ const int TILE_SIZE = 32;
 const int BUTTON_SPRITE_TOTAL = 12;
 
 //Number of mines
-const int MINE_COUNT = 1;
+const int MINE_COUNT = 12;
 
 //Table's size
-const int ROW_SIZE = 10;
-const int COLUMN_SIZE = 10;
+const int ROW_SIZE = 12;
+const int COLUMN_SIZE = 12;
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 500;
