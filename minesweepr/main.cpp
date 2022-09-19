@@ -222,7 +222,7 @@ bool loadMedia()
     {
         //Render text
 		SDL_Color playAgainWin = { 255, 255, 255 };
-		if( !gPlayAgainWinTexture.loadFromRenderedText( "s to try again?", playAgainWin ) )
+		if( !gPlayAgainWinTexture.loadFromRenderedText( "enter to try again?", playAgainWin ) )
 		{
 			cout << "Failed to render text texture!\n";
 			success = false;
@@ -239,7 +239,7 @@ bool loadMedia()
     {
         //Render text
 		SDL_Color playAgainLose = { 255, 255, 255 };
-		if( !gPlayAgainLoseTexture.loadFromRenderedText( "s to try again", playAgainLose ) )
+		if( !gPlayAgainLoseTexture.loadFromRenderedText( "enter to try again", playAgainLose ) )
 		{
 			cout << "Failed to render text texture!\n";
 			success = false;
@@ -393,7 +393,7 @@ void flagManager()
         SDL_RenderPresent( gRenderer );
 
         //Delay loading screen
-        SDL_Delay(500);
+        SDL_Delay(1000);
 
         //Play victory music
         Mix_PlayMusic(winner, 0);
@@ -436,7 +436,7 @@ void playAgainManager(bool &quitGame)
     while( SDL_PollEvent( &e ) != 0 )
     {
         //User requests play again
-        if( e.key.keysym.sym == SDLK_s )
+        if( e.key.keysym.sym == SDLK_RETURN )
         {
             //Stop the music
             Mix_HaltMusic();
